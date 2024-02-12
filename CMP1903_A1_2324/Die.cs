@@ -20,14 +20,15 @@ namespace CMP1903_A1_2324
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
-        ///        //"should contain one property to hold the die current value..."
+
+       //"should contain one property to hold the die current value..."
         public int currentDieValue;
 
         //"...and one method that returns an integer and takes no parameters."
         public int Roll()
         {
             Random value = new Random();
-            currentDieValue = value.Next(1, 7);
+            currentDieValue = value.Next(1, 7); //invoke
             return currentDieValue;
         }
 
