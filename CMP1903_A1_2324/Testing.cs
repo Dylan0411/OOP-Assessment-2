@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,5 +17,22 @@ namespace CMP1903_A1_2324
          */
 
         //Method
+
+        /// <summary>
+        /// /////////////////////////////////////////////////////////////////////////
+        /// </summary>
+        //"Create a Game object."
+        Game game = new Game();
+
+        void Debugger()
+        {
+            //Use debug.assert() to verify: Die rolls are between 1 and 6 (inclusive)."
+            Debug.Assert(game.D1Value > 1 && game.D1Value < 7);
+            Debug.Assert(game.D2Value > 1 && game.D2Value < 7);
+            Debug.Assert(game.D3Value > 1 && game.D3Value < 7);
+
+            //Use debug.assert() to verify: The sum of the three values are as you expect."
+            Debug.Assert(game.sum == game.D1Value + game.D2Value + game.D3Value);
+        }
     }
 }
