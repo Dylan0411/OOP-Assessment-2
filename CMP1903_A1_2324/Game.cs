@@ -35,14 +35,14 @@ namespace CMP1903_A1_2324
 
             //Roll all three
             int D1Value = dice1.Roll();
-            int D2Value = dice2.Roll();
-            int D3Value = dice3.Roll();
+            Console.WriteLine("D1: " + D1Value);
 
-            //////TEMPORARYRYRYRYYYYYYY
-            Console.WriteLine("D1: "+D1Value);
-            Console.WriteLine("D2: "+D2Value);
-            Console.WriteLine("D3: "+D3Value);
-            ////
+            int D2Value = dice2.Roll();
+            Console.WriteLine("D2: " + D2Value);
+
+            int D3Value = dice3.Roll();
+            Console.WriteLine("D3: " + D3Value);
+
             
             //"Sum and report the total of the three dice rolls."
             int sum = D1Value + D2Value + D3Value;
