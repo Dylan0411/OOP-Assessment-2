@@ -20,23 +20,23 @@ namespace CMP1903_A1_2324
 
 
         ///////////////////////////////////////////////////////////////////////////
-        Game game = new Game();
-        
+        Game testGame = new Game();
 
-
-
-        public void verifyRolls()
+        public void verifyRollAndSum()
         {
+            //===============================================================
+            //SWAP THESE TWO AROUND
+            Console.WriteLine(testGame.Run());
+            //testGame.Run();
+            //===============================================================
+
             //Use debug.assert() to verify: Die rolls are between 1 and 6 (inclusive)."
-            Debug.Assert(game.D1Value > 1 && game.D1Value < 7);
-            Debug.Assert(game.D2Value > 1 && game.D2Value < 7);
-            Debug.Assert(game.D3Value > 1 && game.D3Value < 7);
-        }
+            Debug.Assert(testGame.D1Value > 0 && testGame.D1Value < 7, "Die1 didnt roll a number between 1 and 6");
+            Debug.Assert(testGame.D2Value > 0 && testGame.D2Value < 7, "Die2 didnt roll a number between 1 and 6");
+            Debug.Assert(testGame.D3Value > 0 && testGame.D3Value < 7, "Die3 didnt roll a number between 1 and 6");
 
-        public void verifySum()
-        {
             //Use debug.assert() to verify: The sum of the three values are as you expect."
-            Debug.Assert(game.sum == game.D1Value + game.D2Value + game.D3Value);
+            Debug.Assert(testGame.sum == testGame.D1Value + testGame.D2Value + testGame.D3Value, "ERROR: SUM INCORRECT");
         }
     }
 }

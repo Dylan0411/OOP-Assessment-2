@@ -20,13 +20,12 @@ namespace CMP1903_A1_2324
 
         //////////////////////////////////////////////////////////////////////////////////
 
-                //These allow the debugger to get the required values
-        public int D1Value { get; }
-        public int D2Value { get; }
-        public int D3Value { get; }
-        public int sum { get; }
+        public int D1Value;
+        public int D2Value;
+        public int D3Value;
+        public int sum;
 
-        public void Run()
+        public int Run()
         {
             //"Create three dice objects."
             Die dice1 = new Die();
@@ -34,20 +33,20 @@ namespace CMP1903_A1_2324
             Die dice3 = new Die();
 
             //Roll all three
-            int D1Value = dice1.Roll();
+            D1Value = dice1.Roll();
+            D2Value = dice2.Roll();
+            D3Value = dice3.Roll();
+
+            //===============================================================
+            //DELETE THESEEEEE...
             Console.WriteLine("D1: " + D1Value);
-
-            int D2Value = dice2.Roll();
             Console.WriteLine("D2: " + D2Value);
-
-            int D3Value = dice3.Roll();
             Console.WriteLine("D3: " + D3Value);
+            //===============================================================
 
-            
             //"Sum and report the total of the three dice rolls."
-            int sum = D1Value + D2Value + D3Value;
-            Console.WriteLine(sum);
+            sum = D1Value + D2Value + D3Value;
+            return sum;
         }
-
     }
 }

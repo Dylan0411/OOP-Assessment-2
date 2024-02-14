@@ -25,13 +25,11 @@ namespace CMP1903_A1_2324
         public int currentDieValue;
 
         //"...and one method that returns an integer and takes no parameters."
+        static Random value = new Random();
         public int Roll()
         {
-            Random value = new Random();
-            currentDieValue = value.Next(1, 7); //invoke
+            currentDieValue = value.Next(1, 7);
             return currentDieValue;
         }
-
-
     }
 }
