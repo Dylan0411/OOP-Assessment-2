@@ -8,15 +8,13 @@ namespace CMP1903_A1_2324
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        private static void Main(string[] args) //Where the program starts...
         {
-            //Create a 'Game object' with the 'Game class' and call the 'Run()' method within a print statement;
-            Game gameObject = new Game();
-            Console.WriteLine(gameObject.Run());
+            Game gameObject = new Game();  //Creates a new game object from the 'Game' class called 'gameObject'.
+            Console.WriteLine(gameObject.Run()); //Calls the 'Run' method in the 'gameObject' object and prints the value it gets returned back.
 
-            //create a 'test object' with the 'Testing class' and call the 'verifyRollAndSum()' method. 
-            Testing testObject = new Testing();
-            testObject.verifyRollAndSum();
+            Testing testObject = new Testing(); //Creates a new test object from the 'Testing' class called 'testObject'.
+            testObject.verifyRollAndSum(); //Calls the 'verifyRollAndSum' method in the 'testObject' object.
         }
     }
 }

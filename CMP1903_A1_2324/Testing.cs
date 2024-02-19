@@ -9,22 +9,19 @@ namespace CMP1903_A1_2324
 {
     internal class Testing
     {
-        //Constructor
-        private Game testGame = new Game();
+        //-------------------------------Constructors-------------------------------
+        private Game testGame = new Game(); //Creates a new game object from the 'Game' class called 'testGame'.
 
-        //Methods
-        public void verifyRollAndSum()
+        //-------------------------------Methods-------------------------------
+        public void verifyRollAndSum()  //When this is called the program ensures the 'Die' class and the 'sum' variable generate the correct values.
         {
-            //run test game object
-            testGame.Run();
+            testGame.Run();  //Calls the 'Run' method in the 'testGame' object.
 
-            //Use debug.assert() to verify: Die rolls are between 1 and 6 (inclusive)."
-            Debug.Assert(testGame.D1Value > 0 && testGame.D1Value < 7, "Die1 didnt roll a number between 1 and 6");
-            Debug.Assert(testGame.D2Value > 0 && testGame.D2Value < 7, "Die2 didnt roll a number between 1 and 6");
-            Debug.Assert(testGame.D3Value > 0 && testGame.D3Value < 7, "Die3 didnt roll a number between 1 and 6");
+            Debug.Assert(testGame.D1Value > 0 && testGame.D1Value < 7, "Die1 didnt roll a number between 1 and 6"); //checking that the "D1Value" variable (which represents the first dice roll) is between 1 and 6
+            Debug.Assert(testGame.D2Value > 0 && testGame.D2Value < 7, "Die2 didnt roll a number between 1 and 6"); //checking that the "D2Value" variable (which represents the second dice roll) is between 1 and 6
+            Debug.Assert(testGame.D3Value > 0 && testGame.D3Value < 7, "Die3 didnt roll a number between 1 and 6"); //checking that the "D3Value" variable (which represents the third dice roll) is between 1 and 6
 
-            //Use debug.assert() to verify: The sum of the three values are as you expect."
-            Debug.Assert(testGame.sum == testGame.D1Value + testGame.D2Value + testGame.D3Value, "ERROR: SUM INCORRECT");
+            Debug.Assert(testGame.sum == testGame.D1Value + testGame.D2Value + testGame.D3Value, "ERROR: SUM INCORRECT"); //checking that the 'sum' variable actually equals the result of adding together each dice rolls value.
         }
     }
 }
