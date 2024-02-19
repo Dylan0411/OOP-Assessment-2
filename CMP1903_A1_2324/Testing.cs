@@ -10,11 +10,12 @@ namespace CMP1903_A1_2324
     internal class Testing
     {
         //Constructor
-        Game testGame = new Game();
+        private Game testGame = new Game();
 
         //Methods
         public void verifyRollAndSum()
         {
+            //run test game object
             testGame.Run();
 
             //Use debug.assert() to verify: Die rolls are between 1 and 6 (inclusive)."

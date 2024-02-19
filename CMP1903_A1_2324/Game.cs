@@ -15,9 +15,9 @@ namespace CMP1903_A1_2324
         public int sum;
 
         //Constructor
-        Die dice1 = new Die();
-        Die dice2 = new Die();
-        Die dice3 = new Die();
+        private Die dice1 = new Die();
+        private Die dice2 = new Die();
+        private Die dice3 = new Die();
 
         //Methods
         public int Run()
