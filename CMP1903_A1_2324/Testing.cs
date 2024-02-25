@@ -13,7 +13,7 @@ namespace CMP1903_A1_2324
         private Game testGame = new Game(); //Creates a new game object from the 'Game' class called 'testGame'.
 
         //-------------------------------Methods-------------------------------
-        public void verifyRollAndSum()  //When this is called the program ensures the 'Die' class and the 'sum' variable generate the correct values.
+        public void VerifyRollsAndSum()  //When this is called the program ensures the 'Die' class and the 'sum' variable generate the correct values.
         {
             testGame.Run();  //Calls the 'Run' method in the 'testGame' object.
 
@@ -25,7 +25,7 @@ namespace CMP1903_A1_2324
             Debug.Assert(testGame.D3Value > 0 && testGame.D3Value < 7, "Die3 didnt roll a number between 1 and 6");
 
             //checking that the 'sum' variable actually equals the result of adding together each dice rolls value
-            Debug.Assert(testGame.sum == testGame.D1Value + testGame.D2Value + testGame.D3Value, "ERROR: SUM INCORRECT");
+            Debug.Assert(testGame.Sum == testGame.D1Value + testGame.D2Value + testGame.D3Value, "ERROR: SUM INCORRECT");
         }
     }
 }
