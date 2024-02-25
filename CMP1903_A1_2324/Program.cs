@@ -14,7 +14,7 @@ namespace CMP1903_A1_2324
             Console.WriteLine(gameObject.Run()); //Calls the 'Run' method in the 'gameObject' object and prints the value it gets returned back.
 
             Testing testObject = new Testing(); //Creates a new test object from the 'Testing' class called 'testObject'.
-            testObject.verifyRollAndSum(); //Calls the 'verifyRollAndSum' method in the 'testObject' object.
+            testObject.VerifyRollsAndSum(); //Calls the 'verifyRollAndSum' method in the 'testObject' object.
         }
     }
 }

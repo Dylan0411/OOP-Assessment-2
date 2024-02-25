@@ -12,7 +12,7 @@ namespace CMP1903_A1_2324
         public int D1Value; //This variable will hold the value of the first rolled dice.
         public int D2Value; //This variable will hold the value of the second rolled dice.
         public int D3Value; //This variable will hold the value of the third rolled dice.
-        public int sum; //This variable will hold the value of sum of the 3 dice values.
+        public int Sum; //This variable will hold the value of sum of the 3 dice values.
 
         //-------------------------------Constructors-------------------------------
         private Die dice1 = new Die(); //Creates the first dice object from the 'die' class called 'dice1'.
@@ -26,8 +26,8 @@ namespace CMP1903_A1_2324
             D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
             D3Value = dice3.Roll(); //Calls the 'roll' method in the 'dice3' object and assigns the returned value to 'D3Value' variable.
 
-            sum = D1Value + D2Value + D3Value; //This adds the values from the 3 dice rolls and assigns the result to the 'sum' variable.
-            return sum; //This returns the result.
+            Sum = D1Value + D2Value + D3Value; //This adds the values from the 3 dice rolls and assigns the result to the 'sum' variable.
+            return Sum; //This returns the result.
         }
     }
 }
