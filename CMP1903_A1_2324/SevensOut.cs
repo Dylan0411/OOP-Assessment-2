@@ -11,25 +11,157 @@ namespace CMP1903_A1_2324
         //-------------------------------Variables-------------------------------
         public int D1Value; //This variable will hold the value of the first rolled dice.
         public int D2Value; //This variable will hold the value of the second rolled dice.
-        public int D3Value; //This variable will hold the value of the third rolled dice.
-        public int sum; //This variable will hold the value of sum of the 3 dice values.
+
+        int player1Total = 0;
+        int player2Total = 0;
 
         //-------------------------------Constructors-------------------------------
         private Die dice1 = new Die(); //Creates the first dice object from the 'die' class called 'dice1'.
         private Die dice2 = new Die(); //Creates the second dice object from the 'die' class called 'dice2'.
-        private Die dice3 = new Die(); //Creates the third dice object from the 'die' class called 'dice3'.
 
         //-------------------------------Methods-------------------------------
-        public int Run() //When this is called the game runs (the 3 die's each roll and get totalled).
+        public void Run() //When this is called the game runs (the 3 die's each roll and get totalled).
         {
-            Console.WriteLine("sevens out");
+            Console.WriteLine("\n    THREE OR MORE");
+            Console.WriteLine("=======================");
+            Console.WriteLine("(1) Play against partner");
+            Console.WriteLine("(2) Play against computer");
+            Console.WriteLine("=======================");
+            Console.Write("Select an Option (eg '1' or '2'): ");
+            string selectedGame = Console.ReadLine();//record the user input
 
-            D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
-            D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
-            D3Value = dice3.Roll(); //Calls the 'roll' method in the 'dice3' object and assigns the returned value to 'D3Value' variable.
+            if (selectedGame == "1")
+            {
+                againstPartner();
+            }
+            else if (selectedGame == "2")
+            {
+                againstComputer();
+            }
+            else
+            {
+                Console.WriteLine("Invalid Input!");
+            }
+        }
 
-            sum = D1Value + D2Value + D3Value; //This adds the values from the 3 dice rolls and assigns the result to the 'sum' variable.
-            return sum; //This returns the result.
+
+        public void againstPartner()
+        {
+            Console.WriteLine("PLAYING AGAINST A PARTNER!");
+
+            bool player1Running = true;
+            bool player2Running = false;
+            Console.WriteLine("\nPLAYER 1'S TURN");
+
+            int twoOfAKind;
+
+            bool playing = true;
+            while (playing == true)
+            {
+
+                ///////////////////////////////////
+                if (player1Running == true)
+                {
+                    Console.WriteLine("Press any key to Play...");
+                    Console.ReadKey(); // Waits for a key press to roll die
+
+                    int DiceRollsTotal = 0;
+
+                    D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                    Console.WriteLine("1st Dice Roll: " + D1Value);
+                    D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                    Console.WriteLine("2nd Dice Roll: " + D2Value);
+                    DiceRollsTotal = D1Value + D2Value;
+
+                    if (DiceRollsTotal == 7)
+                    {
+                        player1Total = player1Total + 7;
+                    }
+                    else
+                    {
+                        if (D1Value == D2Value)
+                        {
+                            player1Total = player1Total + (D1Value * D2Value);
+                        }
+                        else
+                        {
+                            player1Total = player1Total + DiceRollsTotal;
+                        }
+                    }
+                    Console.WriteLine("Player 1 Current Score: " + player1Total);
+
+                    Console.WriteLine("\nPLAYER 2'S TURN");
+                    player1Running = false;
+                    player2Running = true;
+                }
+
+                if (player2Running == true)
+                {
+                    Console.WriteLine("Press any key to Play...");
+                    Console.ReadKey(); // Waits for a key press to roll die
+
+                    int DiceRollsTotal = 0;
+
+                    D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                    Console.WriteLine("1st Dice Roll: " + D1Value);
+                    D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                    Console.WriteLine("2nd Dice Roll: " + D2Value);
+                    DiceRollsTotal = D1Value + D2Value;
+
+                    if (DiceRollsTotal == 7)
+                    {
+                        player2Total = player2Total + 7;
+                    }
+                    else
+                    {
+                        if (D1Value == D2Value)
+                        {
+                            player2Total = player2Total + (D1Value * D2Value);
+                        }
+                        else
+                        {
+                            player2Total = player2Total + DiceRollsTotal;
+                        }
+                    }
+                    Console.WriteLine("Player 2 Current Score: " + player2Total);
+
+                    Console.WriteLine("\nPLAYER 1'S TURN");
+                    player1Running = true;
+                    player2Running = false;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+        public void againstComputer()
+        {
+            Console.WriteLine("PLAYING AGAINST THE COMPUTER!");
+
+            bool player1Running = true;
+            bool computerRunning = false;
+            Console.WriteLine("\nPLAYER 1'S TURN");
+
+            int twoOfAKind;
+
+            bool playing = true;
+            while (playing == true)
+            {
+
+                ///////////////////////////////////
+                if (player1Running == true)
+                {
+
+                }
+            }
         }
     }
+
+
+
 }
