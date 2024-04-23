@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ThreeOrMore.cs" />
+    <Compile Include="Statistsic.cs" />
     <Compile Include="Die.cs" />
+    <Compile Include="SevensOut.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Testing.cs" />
   </ItemGroup>
