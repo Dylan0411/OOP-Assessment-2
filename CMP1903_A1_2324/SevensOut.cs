@@ -62,7 +62,7 @@ namespace CMP1903_A1_2324
                 ///////////////////////////////////
                 if (player1Running == true)
                 {
-                    Console.WriteLine("Press any key to Play...");
+                    Console.WriteLine("Press any key to Roll...");
                     Console.ReadKey(); // Waits for a key press to roll die
 
                     int DiceRollsTotal = 0;
@@ -76,6 +76,11 @@ namespace CMP1903_A1_2324
                     if (DiceRollsTotal == 7)
                     {
                         player1Total = player1Total + 7;
+                        Console.WriteLine("Player 1's final score: " + player1Total);
+
+                        Console.WriteLine("\nPLAYER 2'S TURN");
+                        player1Running = false;
+                        player2Running = true;
                     }
                     else
                     {
@@ -87,17 +92,13 @@ namespace CMP1903_A1_2324
                         {
                             player1Total = player1Total + DiceRollsTotal;
                         }
+                        Console.WriteLine("Player 1 Current Score: " + player1Total);
                     }
-                    Console.WriteLine("Player 1 Current Score: " + player1Total);
-
-                    Console.WriteLine("\nPLAYER 2'S TURN");
-                    player1Running = false;
-                    player2Running = true;
                 }
 
                 if (player2Running == true)
                 {
-                    Console.WriteLine("Press any key to Play...");
+                    Console.WriteLine("Press any key to Roll...");
                     Console.ReadKey(); // Waits for a key press to roll die
 
                     int DiceRollsTotal = 0;
@@ -111,6 +112,32 @@ namespace CMP1903_A1_2324
                     if (DiceRollsTotal == 7)
                     {
                         player2Total = player2Total + 7;
+
+                        Console.WriteLine("Player 2's final score: " + player2Total);
+
+
+                        player2Running = false;
+                        player1Running = false;
+                        playing = false;
+
+                        Console.WriteLine("\nFINAL SCORES:");
+                        Console.WriteLine("Player 1 Score: " + player1Total);
+                        Console.WriteLine("Player 2 Score: " + player2Total);
+
+
+                        if (player1Total>player2Total)
+                        {
+                            Console.WriteLine("player 1 wins!");
+                        }
+                        else if (player1Total == player2Total)
+                        {
+                            Console.WriteLine("Draw!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("player 2 wins!");
+                        }
+
                     }
                     else
                     {
@@ -122,12 +149,9 @@ namespace CMP1903_A1_2324
                         {
                             player2Total = player2Total + DiceRollsTotal;
                         }
-                    }
-                    Console.WriteLine("Player 2 Current Score: " + player2Total);
+                        Console.WriteLine("Player 2 Current Score: " + player2Total);
 
-                    Console.WriteLine("\nPLAYER 1'S TURN");
-                    player1Running = true;
-                    player2Running = false;
+                    }
                 }
             }
         }
@@ -144,7 +168,7 @@ namespace CMP1903_A1_2324
             Console.WriteLine("PLAYING AGAINST THE COMPUTER!");
 
             bool player1Running = true;
-            bool computerRunning = false;
+            bool player2Running = false;
             Console.WriteLine("\nPLAYER 1'S TURN");
 
             int twoOfAKind;
@@ -156,7 +180,94 @@ namespace CMP1903_A1_2324
                 ///////////////////////////////////
                 if (player1Running == true)
                 {
+                    Console.WriteLine("Press any key to Roll...");
+                    Console.ReadKey(); // Waits for a key press to roll die
 
+                    int DiceRollsTotal = 0;
+
+                    D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                    Console.WriteLine("1st Dice Roll: " + D1Value);
+                    D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                    Console.WriteLine("2nd Dice Roll: " + D2Value);
+                    DiceRollsTotal = D1Value + D2Value;
+
+                    if (DiceRollsTotal == 7)
+                    {
+                        player1Total = player1Total + 7;
+                        Console.WriteLine("Player 1's final score: " + player1Total);
+
+                        Console.WriteLine("\nCOMPUTER'S TURN");
+                        player1Running = false;
+                        player2Running = true;
+                    }
+                    else
+                    {
+                        if (D1Value == D2Value)
+                        {
+                            player1Total = player1Total + (D1Value * D2Value);
+                        }
+                        else
+                        {
+                            player1Total = player1Total + DiceRollsTotal;
+                        }
+                        Console.WriteLine("Player 1 Current Score: " + player1Total);
+                    }
+                }
+
+                if (player2Running == true)
+                {
+
+                    int DiceRollsTotal = 0;
+
+                    D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                    Console.WriteLine("1st Dice Roll: " + D1Value);
+                    D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                    Console.WriteLine("2nd Dice Roll: " + D2Value);
+                    DiceRollsTotal = D1Value + D2Value;
+
+                    if (DiceRollsTotal == 7)
+                    {
+                        player2Total = player2Total + 7;
+
+                        Console.WriteLine("Computer's final score: " + player2Total);
+
+
+                        player2Running = false;
+                        player1Running = false;
+                        playing = false;
+
+                        Console.WriteLine("\nFINAL SCORES:");
+                        Console.WriteLine("Player 1 Score: " + player1Total);
+                        Console.WriteLine("Computer Score: " + player2Total);
+
+
+                        if (player1Total > player2Total)
+                        {
+                            Console.WriteLine("player 1 wins!");
+                        }
+                        else if (player1Total == player2Total)
+                        {
+                            Console.WriteLine("Draw!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Computer wins!");
+                        }
+
+                    }
+                    else
+                    {
+                        if (D1Value == D2Value)
+                        {
+                            player2Total = player2Total + (D1Value * D2Value);
+                        }
+                        else
+                        {
+                            player2Total = player2Total + DiceRollsTotal;
+                        }
+                        Console.WriteLine("Computer Current Score: " + player2Total);
+
+                    }
                 }
             }
         }
