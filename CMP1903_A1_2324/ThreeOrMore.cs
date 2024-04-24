@@ -77,6 +77,8 @@ namespace CMP1903_A1_2324
                 ///////////////////////////////////
                 if (player1Running == true)
                 {
+                    Statistsics.THREEincPlayer1NumberOfPlays();
+
                     Console.WriteLine("Press any key to Play...");
                     Console.ReadKey(); // Waits for a key press to roll die
                     RollTheDie(0);
@@ -86,7 +88,6 @@ namespace CMP1903_A1_2324
                     {
                         if (DiceRepeatsList[Location2] == 2)//checks for 2 of a kind
                         {
-
                             Console.WriteLine("TWO OF A KIND");
                             Console.WriteLine("OPTIONS");
                             Console.WriteLine("(1) reroll ALL die");
@@ -159,6 +160,9 @@ namespace CMP1903_A1_2324
                     if (Player1Score >= 20)
                     {
                         Console.WriteLine("Player 1 win!");
+
+                        Statistsics.THREEincPlayer1NumberOfWins();
+
                         player1Running = false;
                         playing = false;
 
@@ -177,6 +181,8 @@ namespace CMP1903_A1_2324
                 }
                 if (player2Running == true)
                 {
+                    Statistsics.THREEincPlayer2NumberOfPlays();
+
                     Console.WriteLine("Press any key to Play...");
                     Console.ReadKey(); // Waits for a key press to roll die
                     RollTheDie(0);
@@ -258,6 +264,9 @@ namespace CMP1903_A1_2324
                     if (Player2Score >= 20)
                     {
                         Console.WriteLine("Player 2 win!");
+
+                        Statistsics.THREEincPlayer2NumberOfWins();
+
                         player2Running = false;
                         playing = false;
 
@@ -393,6 +402,8 @@ namespace CMP1903_A1_2324
                 ///////////////////////////////////
                 if (player1Running == true)
                 {
+                    Statistsics.THREEincPlayer1NumberOfPlays();
+
                     Console.WriteLine("Press any key to Play...");
                     Console.ReadKey(); // Waits for a key press to roll die
                     RollTheDie(0);
@@ -475,6 +486,9 @@ namespace CMP1903_A1_2324
                     if (Player1Score >= 20)
                     {
                         Console.WriteLine("Player 1 win!");
+
+                        Statistsics.THREEincPlayer1NumberOfWins();
+
                         player1Running = false;
                         playing = false;
 
@@ -490,6 +504,8 @@ namespace CMP1903_A1_2324
                 }
                 if (computerRunning == true)
                 {
+                    Statistsics.THREEincComputerNumberOfPlays();
+
                     Console.WriteLine("Computer rolls the die...");
                     RollTheDie(0);
 
@@ -573,6 +589,9 @@ namespace CMP1903_A1_2324
                     if (Player2Score >= 20)
                     {
                         Console.WriteLine("Computer win!");
+
+                        Statistsics.THREEincComputerNumberOfWins();
+
                         computerRunning = false;
                         playing = false;
 

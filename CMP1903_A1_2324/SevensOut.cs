@@ -62,6 +62,8 @@ namespace CMP1903_A1_2324
                 ///////////////////////////////////
                 if (player1Running == true)
                 {
+                    Statistsics.SEVincPlayer1NumberOfPlays();
+
                     Console.WriteLine("Press any key to Roll...");
                     Console.ReadKey(); // Waits for a key press to roll die
 
@@ -98,6 +100,8 @@ namespace CMP1903_A1_2324
 
                 if (player2Running == true)
                 {
+                    Statistsics.SEVincPlayer2NumberOfPlays();
+
                     Console.WriteLine("Press any key to Roll...");
                     Console.ReadKey(); // Waits for a key press to roll die
 
@@ -128,6 +132,8 @@ namespace CMP1903_A1_2324
                         if (player1Total>player2Total)
                         {
                             Console.WriteLine("player 1 wins!");
+                            Statistsics.SEVincPlayer1NumberOfWins();
+
                         }
                         else if (player1Total == player2Total)
                         {
@@ -136,7 +142,11 @@ namespace CMP1903_A1_2324
                         else
                         {
                             Console.WriteLine("player 2 wins!");
+                            Statistsics.SEVincPlayer2NumberOfWins();
+
                         }
+                        Statistsics.SEVPlayer1HighScore(player1Total);
+                        Statistsics.SEVPlayer2HighScore(player2Total);
 
                     }
                     else
@@ -180,6 +190,8 @@ namespace CMP1903_A1_2324
                 ///////////////////////////////////
                 if (player1Running == true)
                 {
+                    Statistsics.SEVincPlayer1NumberOfPlays();
+
                     Console.WriteLine("Press any key to Roll...");
                     Console.ReadKey(); // Waits for a key press to roll die
 
@@ -216,6 +228,7 @@ namespace CMP1903_A1_2324
 
                 if (player2Running == true)
                 {
+                    Statistsics.SEVincComputerNumberOfPlays();
 
                     int DiceRollsTotal = 0;
 
@@ -244,6 +257,7 @@ namespace CMP1903_A1_2324
                         if (player1Total > player2Total)
                         {
                             Console.WriteLine("player 1 wins!");
+                            Statistsics.SEVincPlayer1NumberOfWins();
                         }
                         else if (player1Total == player2Total)
                         {
@@ -252,7 +266,10 @@ namespace CMP1903_A1_2324
                         else
                         {
                             Console.WriteLine("Computer wins!");
+                            Statistsics.SEVincComputerNumberOfWins();
                         }
+                        Statistsics.SEVPlayer1HighScore(player1Total);
+                        Statistsics.SEVComputerHighScore(player2Total);
 
                     }
                     else

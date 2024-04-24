@@ -15,7 +15,7 @@ namespace CMP1903_A1_2324
         //-------------------------------Methods-------------------------------
         public void verifyRollAndSum()  //When this is called the program ensures the 'Die' class and the 'sum' variable generate the correct values.
         {
-            //testGame.Run();  //Calls the 'Run' method in the 'testGame' object.
+            //testGame.threeOrMore.Run();  //Calls the 'Run' method in the 'testGame' object.
 
             //Debug.Assert(testGame.D1Value > 0 && testGame.D1Value < 7, "Die1 didnt roll a number between 1 and 6"); //checking that the "D1Value" variable (which represents the first dice roll) is between 1 and 6
             //Debug.Assert(testGame.D2Value > 0 && testGame.D2Value < 7, "Die2 didnt roll a number between 1 and 6"); //checking that the "D2Value" variable (which represents the second dice roll) is between 1 and 6

@@ -14,7 +14,7 @@ namespace CMP1903_A1_2324
             Console.WriteLine("=======================");
             Console.WriteLine("(1) Play 'Sevens Out'");
             Console.WriteLine("(2) Play 'Three Or More'");
-            Console.WriteLine("(3) View Statistics Data");
+            Console.WriteLine("(3) Statistical Data");
             Console.WriteLine("(4) Perform Tests");
             Console.WriteLine("=======================");
             Console.Write("Select an Option (eg '1', '2', '3' or '4'): ");
@@ -32,7 +32,7 @@ namespace CMP1903_A1_2324
             }
             else if (selectedGame == "3")
             {
-                Console.WriteLine("NOT YET MADE!");
+                Statistsics.Run();
             }
             else if (selectedGame == "4")
             {
@@ -42,13 +42,6 @@ namespace CMP1903_A1_2324
             {
                 Console.WriteLine("Invalid Input!");
             }
-
-
-            //Game gameObject = new Game();  //Creates a new game object from the 'Game' class called 'gameObject'.
-            //Console.WriteLine(gameObject.Run()); //Calls the 'Run' method in the 'gameObject' object and prints the value it gets returned back.
-
-            //Testing testObject = new Testing(); //Creates a new test object from the 'Testing' class called 'testObject'.
-            //testObject.verifyRollAndSum(); //Calls the 'verifyRollAndSum' method in the 'testObject' object.
         }
     }
 }
