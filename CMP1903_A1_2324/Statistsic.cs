@@ -24,11 +24,13 @@ namespace CMP1903_A1_2324
         public static int THREEp2NOP = 0; //"player two number of plays" 
         public static int THREEcomNOP = 0; //"computer number of plays" 
 
-        public static string filePath = Path.Combine(Directory.GetCurrentDirectory(), "StatisticsClassLogFile.txt"); //find the filepath of the txt file
+        public static string filePath = Path.Combine(Environment.CurrentDirectory, "StatisticsClassLogFile.txt");
         public static List<string> Stats = File.ReadAllLines(filePath).ToList(); //Read each line and add it to the array
 
         public static void Run()
         {
+            //Console.WriteLine(fullPath);
+
             Console.WriteLine("OPTIONS");
             Console.WriteLine("(1) Display Data within the TXT File");
             Console.WriteLine("(2) Reset All data within the TXT File");
