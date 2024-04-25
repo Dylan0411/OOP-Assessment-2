@@ -165,7 +165,6 @@ namespace CMP1903_A1_2324
         //
         public static void THREEincPlayer1NumberOfWins()
         {
-            Console.WriteLine("AHHH");
             int tempVal = Convert.ToInt32(Stats[10]);
             tempVal = tempVal + 1;
             Stats[10] = tempVal.ToString();

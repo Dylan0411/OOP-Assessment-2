@@ -38,7 +38,6 @@ namespace CMP1903_A1_2324
         //-------------------------------Methods-------------------------------
         public void Run() //When this is called the game runs (the 3 die's each roll and get totalled).
         {
-            Console.WriteLine("\n    THREE OR MORE");
             Console.WriteLine("=======================");
             Console.WriteLine("(1) Play against partner");
             Console.WriteLine("(2) Play against computer");
@@ -60,7 +59,7 @@ namespace CMP1903_A1_2324
             }
         }
 
-        public void againstPartner()
+        public virtual void againstPartner()
         {
             Console.WriteLine("PLAYING AGAINST A PARTNER!");
 
@@ -385,7 +384,7 @@ namespace CMP1903_A1_2324
             return DiceRepeatsList;
         }
 
-        public void againstComputer()
+        public virtual void againstComputer()
         {
             Console.WriteLine("PLAYING AGAINST THE COMPUTER!");
 

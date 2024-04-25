@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace CMP1903_A1_2324
 {
-    internal class SevensOut
+    internal class SevensOut:ThreeOrMore
     {
         //-------------------------------Variables-------------------------------
-        public int D1Value; //This variable will hold the value of the first rolled dice.
-        public int D2Value; //This variable will hold the value of the second rolled dice.
 
         int player1Total = 0;
         int player2Total = 0;
@@ -20,40 +18,14 @@ namespace CMP1903_A1_2324
         private Die dice2 = new Die(); //Creates the second dice object from the 'die' class called 'dice2'.
 
         //-------------------------------Methods-------------------------------
-        public void Run() //When this is called the game runs (the 3 die's each roll and get totalled).
-        {
-            Console.WriteLine("\n    THREE OR MORE");
-            Console.WriteLine("=======================");
-            Console.WriteLine("(1) Play against partner");
-            Console.WriteLine("(2) Play against computer");
-            Console.WriteLine("=======================");
-            Console.Write("Select an Option (eg '1' or '2'): ");
-            string selectedGame = Console.ReadLine();//record the user input
 
-            if (selectedGame == "1")
-            {
-                againstPartner();
-            }
-            else if (selectedGame == "2")
-            {
-                againstComputer();
-            }
-            else
-            {
-                Console.WriteLine("Invalid Input!");
-            }
-        }
-
-
-        public void againstPartner()
+        public override void againstPartner()
         {
             Console.WriteLine("PLAYING AGAINST A PARTNER!");
 
             bool player1Running = true;
             bool player2Running = false;
             Console.WriteLine("\nPLAYER 1'S TURN");
-
-            int twoOfAKind;
 
             bool playing = true;
             while (playing == true)
@@ -173,7 +145,7 @@ namespace CMP1903_A1_2324
 
 
 
-        public void againstComputer()
+        public override void againstComputer()
         {
             Console.WriteLine("PLAYING AGAINST THE COMPUTER!");
 

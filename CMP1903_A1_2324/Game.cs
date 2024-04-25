@@ -22,11 +22,15 @@ namespace CMP1903_A1_2324
 
             if (selectedGame == "1")
             {
+                Console.WriteLine("SEVENS OUT");
+
                 SevensOut sevensOut = new SevensOut();
                 sevensOut.Run();
             }
             else if (selectedGame == "2")
             {
+                Console.WriteLine("\n    THREE OR MORE");
+
                 ThreeOrMore threeOrMore = new ThreeOrMore();
                 threeOrMore.Run();
             }
