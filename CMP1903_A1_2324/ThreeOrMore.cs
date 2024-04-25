@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CMP1903_A1_2324
 {
-    internal class ThreeOrMore
+    internal class ThreeOrMore:Game
     {
         //-------------------------------Variables-------------------------------
         public int D1Value; //This variable will hold the value of the first rolled dice.
@@ -36,8 +36,10 @@ namespace CMP1903_A1_2324
 
 
         //-------------------------------Methods-------------------------------
-        public void Run() //When this is called the game runs (the 3 die's each roll and get totalled).
+
+        public override void Run() //When this is called the game runs (the 3 die's each roll and get totalled).
         {
+            Console.WriteLine("\n     THREE OR MORE");
             Console.WriteLine("=======================");
             Console.WriteLine("(1) Play against partner");
             Console.WriteLine("(2) Play against computer");
@@ -58,8 +60,7 @@ namespace CMP1903_A1_2324
                 Console.WriteLine("Invalid Input!");
             }
         }
-
-        public virtual void againstPartner()
+        public override void againstPartner()
         {
             Console.WriteLine("PLAYING AGAINST A PARTNER!");
 
@@ -384,7 +385,7 @@ namespace CMP1903_A1_2324
             return DiceRepeatsList;
         }
 
-        public virtual void againstComputer()
+        public override void againstComputer()
         {
             Console.WriteLine("PLAYING AGAINST THE COMPUTER!");
 

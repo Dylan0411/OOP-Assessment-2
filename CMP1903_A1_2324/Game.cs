@@ -6,46 +6,34 @@ using System.Threading.Tasks;
 
 namespace CMP1903_A1_2324
 {
-    internal class Game
+    internal abstract class Game
     {
-        private static void Main(string[] args) //Where the program starts...
+        public virtual void Run() //When this is called the game runs (the 3 die's each roll and get totalled).
         {
-            Console.WriteLine("OPTIONS:");
+            Console.WriteLine("####GAME TITLE HERE####");
             Console.WriteLine("=======================");
-            Console.WriteLine("(1) Play 'Sevens Out'");
-            Console.WriteLine("(2) Play 'Three Or More'");
-            Console.WriteLine("(3) Statistical Data");
-            Console.WriteLine("(4) Perform Tests");
+            Console.WriteLine("(1) Play against partner");
+            Console.WriteLine("(2) Play against computer");
             Console.WriteLine("=======================");
-            Console.Write("Select an Option (eg '1', '2', '3' or '4'): ");
-            string selectedGame= Console.ReadLine();//record the user input
+            Console.Write("Select an Option (eg '1' or '2'): ");
+            string selectedGame = Console.ReadLine();//record the user input
 
             if (selectedGame == "1")
             {
-                Console.WriteLine("SEVENS OUT");
-
-                SevensOut sevensOut = new SevensOut();
-                sevensOut.Run();
+                againstPartner();
             }
             else if (selectedGame == "2")
             {
-                Console.WriteLine("\n    THREE OR MORE");
-
-                ThreeOrMore threeOrMore = new ThreeOrMore();
-                threeOrMore.Run();
-            }
-            else if (selectedGame == "3")
-            {
-                Statistsics.Run();
-            }
-            else if (selectedGame == "4")
-            {
-                Console.WriteLine("NOT YET MADE!");
+                againstComputer();
             }
             else
             {
                 Console.WriteLine("Invalid Input!");
             }
         }
+
+        public abstract void againstPartner();
+        public abstract void againstComputer();
+
     }
 }

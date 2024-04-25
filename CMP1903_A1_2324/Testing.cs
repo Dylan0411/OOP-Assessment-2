@@ -10,7 +10,7 @@ namespace CMP1903_A1_2324
     internal class Testing
     {
         //-------------------------------Constructors-------------------------------
-        private Game testGame = new Game(); //Creates a new game object from the 'Game' class called 'testGame'.
+        //private Game testGame = new Game(); //Creates a new game object from the 'Game' class called 'testGame'.
 
         //-------------------------------Methods-------------------------------
         public void verifyRollAndSum()  //When this is called the program ensures the 'Die' class and the 'sum' variable generate the correct values.
