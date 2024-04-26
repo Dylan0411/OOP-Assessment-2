@@ -61,15 +61,15 @@ namespace CMP1903_A1_2324
                     Console.WriteLine("Press any key to Roll...");
                     Console.ReadKey(); // Waits for a key press to roll die
 
-                    int DiceRollsTotal = 0;
+                    DiceRollsTotalP1 = 0;
 
                     D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
                     Console.WriteLine("1st Dice Roll: " + D1Value);
                     D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
                     Console.WriteLine("2nd Dice Roll: " + D2Value);
-                    DiceRollsTotal = D1Value + D2Value;
+                    DiceRollsTotalP1 = D1Value + D2Value;
 
-                    if (DiceRollsTotal == 7)
+                    if (DiceRollsTotalP1 == 7)
                     {
                         player1Total = player1Total + 7;
                         Console.WriteLine("Player 1's final score: " + player1Total);
@@ -86,7 +86,7 @@ namespace CMP1903_A1_2324
                         }
                         else
                         {
-                            player1Total = player1Total + DiceRollsTotal;
+                            player1Total = player1Total + DiceRollsTotalP1;
                         }
                         Console.WriteLine("Player 1 Current Score: " + player1Total);
                     }
@@ -99,15 +99,15 @@ namespace CMP1903_A1_2324
                     Console.WriteLine("Press any key to Roll...");
                     Console.ReadKey(); // Waits for a key press to roll die
 
-                    int DiceRollsTotal = 0;
+                    DiceRollsTotalP2 = 0;
 
-                    D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
-                    Console.WriteLine("1st Dice Roll: " + D1Value);
-                    D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
-                    Console.WriteLine("2nd Dice Roll: " + D2Value);
-                    DiceRollsTotal = D1Value + D2Value;
+                    D3Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                    Console.WriteLine("1st Dice Roll: " + D3Value);
+                    D4Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                    Console.WriteLine("2nd Dice Roll: " + D4Value);
+                    DiceRollsTotalP2 = D3Value + D4Value;
 
-                    if (DiceRollsTotal == 7)
+                    if (DiceRollsTotalP2 == 7)
                     {
                         player2Total = player2Total + 7;
 
@@ -145,13 +145,13 @@ namespace CMP1903_A1_2324
                     }
                     else
                     {
-                        if (D1Value == D2Value)
+                        if (D3Value == D4Value)
                         {
-                            player2Total = player2Total + (D1Value * D2Value);
+                            player2Total = player2Total + (D3Value * D4Value);
                         }
                         else
                         {
-                            player2Total = player2Total + DiceRollsTotal;
+                            player2Total = player2Total + DiceRollsTotalP2;
                         }
                         Console.WriteLine("Player 2 Current Score: " + player2Total);
 
@@ -175,8 +175,6 @@ namespace CMP1903_A1_2324
             bool player2Running = false;
             Console.WriteLine("\nPLAYER 1'S TURN");
 
-            int twoOfAKind;
-
             bool playing = true;
             while (playing == true)
             {
@@ -189,15 +187,15 @@ namespace CMP1903_A1_2324
                     Console.WriteLine("Press any key to Roll...");
                     Console.ReadKey(); // Waits for a key press to roll die
 
-                    int DiceRollsTotal = 0;
+                    DiceRollsTotalP1 = 0;
 
                     D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
                     Console.WriteLine("1st Dice Roll: " + D1Value);
                     D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
                     Console.WriteLine("2nd Dice Roll: " + D2Value);
-                    DiceRollsTotal = D1Value + D2Value;
+                    DiceRollsTotalP1 = D1Value + D2Value;
 
-                    if (DiceRollsTotal == 7)
+                    if (DiceRollsTotalP1 == 7)
                     {
                         player1Total = player1Total + 7;
                         Console.WriteLine("Player 1's final score: " + player1Total);
@@ -214,7 +212,7 @@ namespace CMP1903_A1_2324
                         }
                         else
                         {
-                            player1Total = player1Total + DiceRollsTotal;
+                            player1Total = player1Total + DiceRollsTotalP1;
                         }
                         Console.WriteLine("Player 1 Current Score: " + player1Total);
                     }
@@ -224,15 +222,15 @@ namespace CMP1903_A1_2324
                 {
                     Statistsics.SEVincComputerNumberOfPlays();
 
-                    int DiceRollsTotal = 0;
+                    DiceRollsTotalP2 = 0;
 
-                    D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
-                    Console.WriteLine("1st Dice Roll: " + D1Value);
-                    D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
-                    Console.WriteLine("2nd Dice Roll: " + D2Value);
-                    DiceRollsTotal = D1Value + D2Value;
+                    D3Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                    Console.WriteLine("1st Dice Roll: " + D3Value);
+                    D4Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                    Console.WriteLine("2nd Dice Roll: " + D4Value);
+                    DiceRollsTotalP2 = D3Value + D4Value;
 
-                    if (DiceRollsTotal == 7)
+                    if (DiceRollsTotalP2 == 7)
                     {
                         player2Total = player2Total + 7;
 
@@ -268,13 +266,13 @@ namespace CMP1903_A1_2324
                     }
                     else
                     {
-                        if (D1Value == D2Value)
+                        if (D3Value == D4Value)
                         {
-                            player2Total = player2Total + (D1Value * D2Value);
+                            player2Total = player2Total + (D3Value * D4Value);
                         }
                         else
                         {
-                            player2Total = player2Total + DiceRollsTotal;
+                            player2Total = player2Total + DiceRollsTotalP2;
                         }
                         Console.WriteLine("Computer Current Score: " + player2Total);
 

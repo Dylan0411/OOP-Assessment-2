@@ -9,19 +9,41 @@ namespace CMP1903_A1_2324
 {
     internal class Testing
     {
-        //-------------------------------Constructors-------------------------------
-        //private Game testGame = new Game(); //Creates a new game object from the 'Game' class called 'testGame'.
-
         //-------------------------------Methods-------------------------------
-        public void verifyRollAndSum()  //When this is called the program ensures the 'Die' class and the 'sum' variable generate the correct values.
+        public void runTests()  //When this is called the program ensures the 'Die' class and the 'sum' variable generate the correct values.
         {
-            //testGame.threeOrMore.Run();  //Calls the 'Run' method in the 'testGame' object.
+            Console.WriteLine("OPTIONS:");
+            Console.WriteLine("=======================");
+            Console.WriteLine("(1) Run tests on: 'Sevens Out'");
+            Console.WriteLine("(2) Run tests on: 'Three Or More'");
+            Console.WriteLine("=======================");
+            Console.Write("Select an Option (eg '1' or '2'): ");
+            string selectedGame = Console.ReadLine();//record the user input
 
-            //Debug.Assert(testGame.D1Value > 0 && testGame.D1Value < 7, "Die1 didnt roll a number between 1 and 6"); //checking that the "D1Value" variable (which represents the first dice roll) is between 1 and 6
-            //Debug.Assert(testGame.D2Value > 0 && testGame.D2Value < 7, "Die2 didnt roll a number between 1 and 6"); //checking that the "D2Value" variable (which represents the second dice roll) is between 1 and 6
-            //Debug.Assert(testGame.D3Value > 0 && testGame.D3Value < 7, "Die3 didnt roll a number between 1 and 6"); //checking that the "D3Value" variable (which represents the third dice roll) is between 1 and 6
+            if (selectedGame == "1")
+            {
+                SevensOut sevensOutOBJ = new SevensOut();
+                sevensOutOBJ.Run();
 
-            //Debug.Assert(testGame.sum == testGame.D1Value + testGame.D2Value + testGame.D3Value, "ERROR: SUM INCORRECT"); //checking that the 'sum' variable actually equals the result of adding together each dice rolls value.
+                Debug.Assert(sevensOutOBJ.D1Value + sevensOutOBJ.D2Value == sevensOutOBJ.DiceRollsTotalP1, "PLAYER 1 TOTAL IS INCORRECT!");
+                Debug.Assert(sevensOutOBJ.DiceRollsTotalP1 == 7, "PLAYER 1 GAME ENDED BUT PLAYER 1 DIDNT ROLL A 7!");
+                Debug.Assert(sevensOutOBJ.D3Value + sevensOutOBJ.D4Value == sevensOutOBJ.DiceRollsTotalP2, "PLAYER 2 TOTAL IS INCORRECT!");
+                Debug.Assert(sevensOutOBJ.DiceRollsTotalP2 == 7, "PLAYER 2 GAME ENDED BUT PLAYER 2 DIDNT ROLL A 7!");
+
+            }
+            else if (selectedGame == "2")
+            {
+                ThreeOrMore threeOrMoreOBJ = new ThreeOrMore();
+                threeOrMoreOBJ.Run();
+
+                Debug.Assert(threeOrMoreOBJ.Player1Score >= 20 || threeOrMoreOBJ.Player2Score >= 20, "GAME ENDED BUT NOBODY SCORED 20 OR ABOVE!");
+
+                //+Three Or More: Scores set and added correctly
+            }
+            else
+            {
+                Console.WriteLine("Invalid Input!");
+            }
         }
     }
 }

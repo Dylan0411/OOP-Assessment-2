@@ -278,21 +278,21 @@ namespace CMP1903_A1_2324
         }
         public static void resetData()
         {
-            Stats[0] = "0000";
-            Stats[1] = "0000";
-            Stats[2] = "0000";
-            Stats[3] = "0000";
-            Stats[4] = "0000";
-            Stats[5] = "0000";
-            Stats[6] = "0000";
-            Stats[7] = "0000";
-            Stats[8] = "0000";
-            Stats[9] = "0000";
-            Stats[10] = "0000";
-            Stats[11] = "0000";
-            Stats[12] = "0000";
-            Stats[13] = "0000";
-            Stats[14] = "0000";
+            Stats[0] = "00";
+            Stats[1] = "00";
+            Stats[2] = "00";
+            Stats[3] = "00";
+            Stats[4] = "00";
+            Stats[5] = "00";
+            Stats[6] = "00";
+            Stats[7] = "00";
+            Stats[8] = "00";
+            Stats[9] = "00";
+            Stats[10] = "00";
+            Stats[11] = "00";
+            Stats[12] = "00";
+            Stats[13] = "00";
+            Stats[14] = "00";
 
             File.WriteAllLines(filePath, Stats);
 

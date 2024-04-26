@@ -22,6 +22,9 @@ namespace CMP1903_A1_2324
         public int Player1Score = 0;
         public int Player2Score = 0;
         public int ComputerScore = 0;
+        public int DiceRollsTotalP1;
+        public int DiceRollsTotalP2;
+
 
 
         //-------------------------------Constructors-------------------------------

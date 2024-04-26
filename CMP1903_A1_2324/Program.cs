@@ -36,7 +36,9 @@ namespace CMP1903_A1_2324
             }
             else if (selectedGame == "4")
             {
-                Console.WriteLine("NOT YET MADE!");
+                Console.WriteLine("\n-TESTING MODE ACTIVATED-");
+                Testing testingOBJ = new Testing();
+                testingOBJ.runTests();
             }
             else
             {
