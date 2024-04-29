@@ -34,7 +34,9 @@ namespace CMP1903_A1_2324
         private Die dice4 = new Die();
         private Die dice5 = new Die();
         List<int> DiceRollsList = new List<int>();
-        List<int> DiceRepeatsList = new List<int>();
+        public List<int> DiceRepeatsList = new List<int>();
+
+        public int originalScore;
 
         /// <summary>
         /// This gives the user an option to either play against a partner or the computer        
@@ -142,6 +144,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 3)
                         {
                             Console.WriteLine("THREE OF A KIND");
+                            originalScore = Player2Score;
                             Player1Score = Player1Score + 3;
                         }
                         Location2++;
@@ -152,6 +155,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 4)
                         {
                             Console.WriteLine("FOUR OF A KIND");
+                            originalScore = Player2Score;
                             Player1Score = Player1Score + 6;
                         }
                         Location2++;
@@ -162,6 +166,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 5)
                         {
                             Console.WriteLine("FIVE OF A KIND");
+                            originalScore = Player2Score;
                             Player1Score = Player1Score + 12;
                         }
                         Location2++;
@@ -244,6 +249,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 3)
                         {
                             Console.WriteLine("THREE OF A KIND");
+                            originalScore = Player2Score;
                             Player2Score = Player2Score + 3;
                         }
                         Location2++;
@@ -254,6 +260,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 4)
                         {
                             Console.WriteLine("FOUR OF A KIND");
+                            originalScore = Player2Score;
                             Player2Score = Player2Score + 6;
                         }
                         Location2++;
@@ -264,6 +271,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 5)
                         {
                             Console.WriteLine("FIVE OF A KIND");
+                            originalScore = Player2Score;
                             Player2Score = Player2Score + 12;
                         }
                         Location2++;
@@ -458,6 +466,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 3)
                         {
                             Console.WriteLine("THREE OF A KIND");
+                            originalScore = Player1Score;
                             Player1Score = Player1Score + 3;
                         }
                         Location2++;
@@ -468,6 +477,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 4)
                         {
                             Console.WriteLine("FOUR OF A KIND");
+                            originalScore = Player1Score;
                             Player1Score = Player1Score + 6;
                         }
                         Location2++;
@@ -478,6 +488,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 5)
                         {
                             Console.WriteLine("FIVE OF A KIND");
+                            originalScore = Player1Score;
                             Player1Score = Player1Score + 12;
                         }
                         Location2++;
@@ -560,6 +571,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 3)
                         {
                             Console.WriteLine("THREE OF A KIND");
+                            originalScore = Player2Score;
                             Player2Score = Player2Score + 3;
                         }
                         Location2++;
@@ -570,6 +582,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 4)
                         {
                             Console.WriteLine("FOUR OF A KIND");
+                            originalScore = Player2Score;
                             Player2Score = Player2Score + 6;
                         }
                         Location2++;
@@ -580,6 +593,7 @@ namespace CMP1903_A1_2324
                         if (DiceRepeatsList[Location2] == 5)
                         {
                             Console.WriteLine("FIVE OF A KIND");
+                            originalScore = Player2Score;
                             Player2Score = Player2Score + 12;
                         }
                         Location2++;

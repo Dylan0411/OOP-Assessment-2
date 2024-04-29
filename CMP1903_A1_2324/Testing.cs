@@ -45,7 +45,33 @@ namespace CMP1903_A1_2324
 
                     Debug.Assert(threeOrMoreOBJ.Player1Score >= 20 || threeOrMoreOBJ.Player2Score >= 20, "GAME ENDED BUT NOBODY SCORED 20 OR ABOVE!");
 
-                    //+Three Or More: Scores set and added correctly
+                    int Location2 = 0;
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (threeOrMoreOBJ.DiceRepeatsList[Location2] == 3)
+                        {
+                            Debug.Assert(threeOrMoreOBJ.Player1Score - 3 == threeOrMoreOBJ.originalScore || threeOrMoreOBJ.Player2Score - 3 == threeOrMoreOBJ.originalScore, "SCORE WAS NOT ADDED UP CORRECTLY!");
+                        }
+                        Location2++;
+                    }
+                    Location2 = 0;
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (threeOrMoreOBJ.DiceRepeatsList[Location2] == 4)
+                        {
+                            Debug.Assert(threeOrMoreOBJ.Player1Score - 6 == threeOrMoreOBJ.originalScore || threeOrMoreOBJ.Player2Score - 6 == threeOrMoreOBJ.originalScore, "SCORE WAS NOT ADDED UP CORRECTLY!");
+                        }
+                        Location2++;
+                    }
+                    Location2 = 0;
+                    for (int i = 0; i < 6; i++)
+                    {
+                        if (threeOrMoreOBJ.DiceRepeatsList[Location2] == 5)
+                        {
+                            Debug.Assert(threeOrMoreOBJ.Player1Score - 12 == threeOrMoreOBJ.originalScore || threeOrMoreOBJ.Player2Score - 12 == threeOrMoreOBJ.originalScore, "SCORE WAS NOT ADDED UP CORRECTLY!");
+                        }
+                        Location2++;
+                    }
                 }
             }
             catch
