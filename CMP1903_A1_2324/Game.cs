@@ -6,34 +6,49 @@ using System.Threading.Tasks;
 
 namespace CMP1903_A1_2324
 {
+    /// <summary>
+    /// This class is a blueprint for both of the game classes
+    /// </summary>
     internal abstract class Game
     {
-        public virtual void Run() //When this is called the game runs (the 3 die's each roll and get totalled).
+        /// <summary>
+        /// This gives the user an option to either play against a partner or the computer
+        /// </summary>
+        public virtual void Run()
         {
-            Console.WriteLine("####GAME TITLE HERE####");
-            Console.WriteLine("=======================");
-            Console.WriteLine("(1) Play against partner");
-            Console.WriteLine("(2) Play against computer");
-            Console.WriteLine("=======================");
-            Console.Write("Select an Option (eg '1' or '2'): ");
-            string selectedGame = Console.ReadLine();//record the user input
+            try
+            {
+                Console.WriteLine("####GAME TITLE HERE####");
+                Console.WriteLine("=======================");
+                Console.WriteLine("(1) Play against partner");
+                Console.WriteLine("(2) Play against computer");
+                Console.WriteLine("=======================");
+                Console.Write("Select an Option (eg '1' or '2'): ");
+                string selectedGame = Console.ReadLine();
 
-            if (selectedGame == "1")
-            {
-                againstPartner();
+                if (selectedGame == "1")
+                {
+                    againstPartner();
+                }
+                else if (selectedGame == "2")
+                {
+                    againstComputer();
+                }
             }
-            else if (selectedGame == "2")
-            {
-                againstComputer();
-            }
-            else
+            catch
             {
                 Console.WriteLine("Invalid Input!");
             }
         }
 
+        /// <summary>
+        /// forces the games that inherit this class to have an option where the player plays against a partner
+        /// </summary>
         public abstract void againstPartner();
-        public abstract void againstComputer();
 
+        /// <summary>
+        /// forces the games that inherit this class to have an option where the player plays against the computer
+        /// </summary>
+        public abstract void againstComputer();
     }
 }

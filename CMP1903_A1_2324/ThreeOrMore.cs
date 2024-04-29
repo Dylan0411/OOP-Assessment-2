@@ -8,61 +8,67 @@ using System.Threading.Tasks;
 
 namespace CMP1903_A1_2324
 {
+
+    /// <summary>
+    /// This class is inherited from the Game class
+    /// </summary>
     internal class ThreeOrMore:Game
     {
-        //-------------------------------Variables-------------------------------
-        public int D1Value; //This variable will hold the value of the first rolled dice.
-        public int D2Value; //This variable will hold the value of the second rolled dice.
+        public int D1Value;
+        public int D2Value;
         public int D3Value;
         public int D4Value;
         public int D5Value;
-        public int Player1Sum = 0; //This variable will hold the value of sum of the 3 dice values.
-        public int Player2Sum = 0; //This variable will hold the value of sum of the 3 dice values.
-        public int ComputerSum = 0; //This variable will hold the value of sum of the 3 dice values.
+        public int Player1Sum = 0;
+        public int Player2Sum = 0;
+        public int ComputerSum = 0;
         public int Player1Score = 0;
         public int Player2Score = 0;
         public int ComputerScore = 0;
         public int DiceRollsTotalP1;
         public int DiceRollsTotalP2;
 
-
-
-        //-------------------------------Constructors-------------------------------
-        private Die dice1 = new Die(); //Creates the first dice object from the 'die' class called 'dice1'.
-        private Die dice2 = new Die(); //Creates the second dice object from the 'die' class called 'dice2'.
+        private Die dice1 = new Die();
+        private Die dice2 = new Die();
         private Die dice3 = new Die();
         private Die dice4 = new Die();
         private Die dice5 = new Die();
-
         List<int> DiceRollsList = new List<int>();
         List<int> DiceRepeatsList = new List<int>();
 
-
-        //-------------------------------Methods-------------------------------
-
-        public override void Run() //When this is called the game runs (the 3 die's each roll and get totalled).
+        /// <summary>
+        /// This gives the user an option to either play against a partner or the computer        
+        /// </summary>
+        public override void Run()
         {
-            Console.WriteLine("\n     THREE OR MORE");
-            Console.WriteLine("=======================");
-            Console.WriteLine("(1) Play against partner");
-            Console.WriteLine("(2) Play against computer");
-            Console.WriteLine("=======================");
-            Console.Write("Select an Option (eg '1' or '2'): ");
-            string selectedGame = Console.ReadLine();//record the user input
+            try
+            {
+                Console.WriteLine("\n     THREE OR MORE");
+                Console.WriteLine("=======================");
+                Console.WriteLine("(1) Play against partner");
+                Console.WriteLine("(2) Play against computer");
+                Console.WriteLine("=======================");
+                Console.Write("Select an Option (eg '1' or '2'): ");
+                string selectedGame = Console.ReadLine();
 
-            if (selectedGame == "1")
-            {
-                againstPartner();
+                if (selectedGame == "1")
+                {
+                    againstPartner();
+                }
+                else if (selectedGame == "2")
+                {
+                    againstComputer();
+                }
             }
-            else if (selectedGame == "2")
-            {
-                againstComputer();
-            }
-            else
+            catch
             {
                 Console.WriteLine("Invalid Input!");
             }
         }
+
+        /// <summary>
+        /// This is a version of the game where the user plays against a partner
+        /// </summary>
         public override void againstPartner()
         {
             Console.WriteLine("PLAYING AGAINST A PARTNER!");
@@ -76,53 +82,54 @@ namespace CMP1903_A1_2324
             bool playing = true;
             while (playing == true)
             {
-
-                ///////////////////////////////////
                 if (player1Running == true)
                 {
                     Statistsics.THREEincPlayer1NumberOfPlays();
 
                     Console.WriteLine("Press any key to Play...");
-                    Console.ReadKey(); // Waits for a key press to roll die
+                    Console.ReadKey();
                     RollTheDie(0);
 
                     int Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 2)//checks for 2 of a kind
+                        if (DiceRepeatsList[Location2] == 2)
                         {
-                            Console.WriteLine("TWO OF A KIND");
-                            Console.WriteLine("OPTIONS");
-                            Console.WriteLine("(1) reroll ALL die");
-                            Console.WriteLine("(2) reroll the REMAINING die");
-                            Console.Write("Select an Option (eg '1' or '2'): ");
-                            string selectedOption = Console.ReadLine();//record the user input
-
-                            if (selectedOption == "1")
+                            try
                             {
-                                RollTheDie(0);
-                            }
-                            else if (selectedOption == "2")
-                            {
-                                twoOfAKind = 0;
-                                int Location3 = 0;
+                                Console.WriteLine("TWO OF A KIND");
+                                Console.WriteLine("OPTIONS");
+                                Console.WriteLine("(1) reroll ALL die");
+                                Console.WriteLine("(2) reroll the REMAINING die");
+                                Console.Write("Select an Option (eg '1' or '2'): ");
+                                string selectedOption = Console.ReadLine();
 
-                                bool searching = true;
-                                while (searching == true)
+                                if (selectedOption == "1")
                                 {
-                                    if (DiceRepeatsList[Location3] == 2)
+                                    RollTheDie(0);
+                                }
+                                else if (selectedOption == "2")
+                                {
+                                    twoOfAKind = 0;
+                                    int Location3 = 0;
+
+                                    bool searching = true;
+                                    while (searching == true)
                                     {
-                                        twoOfAKind = Location3 + 1;
-                                        searching = false;
-                                        RollTheDie(twoOfAKind);
-                                    }
-                                    else
-                                    {
-                                        Location3++;
+                                        if (DiceRepeatsList[Location3] == 2)
+                                        {
+                                            twoOfAKind = Location3 + 1;
+                                            searching = false;
+                                            RollTheDie(twoOfAKind);
+                                        }
+                                        else
+                                        {
+                                            Location3++;
+                                        }
                                     }
                                 }
                             }
-                            else
+                            catch
                             {
                                 Console.WriteLine("Invalid Input!");
                             }
@@ -130,9 +137,9 @@ namespace CMP1903_A1_2324
                         Location2++;
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 3)//checks for 3 of a kind
+                        if (DiceRepeatsList[Location2] == 3)
                         {
                             Console.WriteLine("THREE OF A KIND");
                             Player1Score = Player1Score + 3;
@@ -140,9 +147,9 @@ namespace CMP1903_A1_2324
                         Location2++;
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 4)//checks for 4 of a kind
+                        if (DiceRepeatsList[Location2] == 4)
                         {
                             Console.WriteLine("FOUR OF A KIND");
                             Player1Score = Player1Score + 6;
@@ -150,9 +157,9 @@ namespace CMP1903_A1_2324
                         Location2++;
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 5)//checks for 5 of a kind
+                        if (DiceRepeatsList[Location2] == 5)
                         {
                             Console.WriteLine("FIVE OF A KIND");
                             Player1Score = Player1Score + 12;
@@ -168,65 +175,63 @@ namespace CMP1903_A1_2324
 
                         player1Running = false;
                         playing = false;
-
-                        //BREAK LOOP
                     }
                     else
                     {
                         Console.WriteLine("\nPLAYER 2'S TURN");
-                        //player2
+
                         player1Running = false;
                         player2Running = true;
                     }
-
-
-
                 }
                 if (player2Running == true)
                 {
                     Statistsics.THREEincPlayer2NumberOfPlays();
 
                     Console.WriteLine("Press any key to Play...");
-                    Console.ReadKey(); // Waits for a key press to roll die
+                    Console.ReadKey();
                     RollTheDie(0);
 
                     int Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 2)//checks for 2 of a kind
+                        if (DiceRepeatsList[Location2] == 2)
                         {
-                            Console.WriteLine("TWO OF A KIND");
-                            Console.WriteLine("OPTIONS");
-                            Console.WriteLine("(1) reroll ALL die");
-                            Console.WriteLine("(2) reroll the REMAINING die");
-                            Console.Write("Select an Option (eg '1' or '2'): ");
-                            string selectedOption = Console.ReadLine();//record the user input
-
-                            if (selectedOption == "1")
+                            try
                             {
-                                RollTheDie(0);
-                            }
-                            else if (selectedOption == "2")
-                            {
-                                twoOfAKind = 0;
-                                int Location3 = 0;
+                                Console.WriteLine("TWO OF A KIND");
+                                Console.WriteLine("OPTIONS");
+                                Console.WriteLine("(1) reroll ALL die");
+                                Console.WriteLine("(2) reroll the REMAINING die");
+                                Console.Write("Select an Option (eg '1' or '2'): ");
+                                string selectedOption = Console.ReadLine();
 
-                                bool searching = true;
-                                while (searching == true)
+                                if (selectedOption == "1")
                                 {
-                                    if (DiceRepeatsList[Location3] == 2)
+                                    RollTheDie(0);
+                                }
+                                else if (selectedOption == "2")
+                                {
+                                    twoOfAKind = 0;
+                                    int Location3 = 0;
+
+                                    bool searching = true;
+                                    while (searching == true)
                                     {
-                                        twoOfAKind = Location3 + 1;
-                                        searching = false;
-                                        RollTheDie(twoOfAKind);
-                                    }
-                                    else
-                                    {
-                                        Location3++;
+                                        if (DiceRepeatsList[Location3] == 2)
+                                        {
+                                            twoOfAKind = Location3 + 1;
+                                            searching = false;
+                                            RollTheDie(twoOfAKind);
+                                        }
+                                        else
+                                        {
+                                            Location3++;
+                                        }
                                     }
                                 }
                             }
-                            else
+                            catch
                             {
                                 Console.WriteLine("Invalid Input!");
                             }
@@ -234,9 +239,9 @@ namespace CMP1903_A1_2324
                         }
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 3)//checks for 3 of a kind
+                        if (DiceRepeatsList[Location2] == 3)
                         {
                             Console.WriteLine("THREE OF A KIND");
                             Player2Score = Player2Score + 3;
@@ -244,9 +249,9 @@ namespace CMP1903_A1_2324
                         Location2++;
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 4)//checks for 3 of a kind
+                        if (DiceRepeatsList[Location2] == 4)
                         {
                             Console.WriteLine("FOUR OF A KIND");
                             Player2Score = Player2Score + 6;
@@ -254,9 +259,9 @@ namespace CMP1903_A1_2324
                         Location2++;
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 5)//checks for 3 of a kind
+                        if (DiceRepeatsList[Location2] == 5)
                         {
                             Console.WriteLine("FIVE OF A KIND");
                             Player2Score = Player2Score + 12;
@@ -272,32 +277,32 @@ namespace CMP1903_A1_2324
 
                         player2Running = false;
                         playing = false;
-
-                        //BREAK LOOP
                     }
                     else
                     {
                         Console.WriteLine("\nPLAYER 1'S TURN");
-                        //player2
                         player1Running = true;
                         player2Running = false;
-
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// This method rolls 5 of the die if its the start of the game or 3 die if they previously rolled a 'two of a kind' (based on parameter value)
+        /// </summary>
+        /// <param name="twoOfAKindValueDie"></param>
+        /// <returns></returns>
         public List<int> RollTheDie(int twoOfAKindValueDie)
         {
-            //EMPTY LIST
             DiceRollsList.Clear();
 
             if (twoOfAKindValueDie == 0)
             {
-                D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                D1Value = dice1.Roll();
                 DiceRollsList.Add(D1Value);
                 Console.WriteLine("1st Dice Roll: " + D1Value);
-                D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                D2Value = dice2.Roll();
                 DiceRollsList.Add(D2Value);
                 Console.WriteLine("2nd Dice Roll: " + D2Value);
                 D3Value = dice3.Roll();
@@ -312,10 +317,10 @@ namespace CMP1903_A1_2324
             }
             else
             {
-                D1Value = twoOfAKindValueDie; //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                D1Value = twoOfAKindValueDie;
                 DiceRollsList.Add(D1Value);
                 Console.WriteLine("1st Dice Roll: " + D1Value);
-                D2Value = twoOfAKindValueDie; //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                D2Value = twoOfAKindValueDie;
                 DiceRollsList.Add(D2Value);
                 Console.WriteLine("2nd Dice Roll: " + D2Value);
                 D3Value = dice3.Roll();
@@ -329,8 +334,6 @@ namespace CMP1903_A1_2324
                 Console.WriteLine("5th Dice Roll: " + D5Value);
             }
 
-            //DIE CHECKER
-
             int ones = 0;
             int twos = 0;
             int threes = 0;
@@ -339,9 +342,8 @@ namespace CMP1903_A1_2324
             int sixes = 0;
             int Location = 0;
 
-            for (int ii = 0; ii < 5; ii++)//loops for each die (5 dies = loops 5 times)
+            for (int ii = 0; ii < 5; ii++)
             {
-                //loop to check one die at a time
                 if (DiceRollsList[Location] == 1)
                 {
                     ones++;
@@ -368,7 +370,6 @@ namespace CMP1903_A1_2324
                 }
                 Location++;
             }
-            //EMPTY LIST
             DiceRepeatsList.Clear();
 
             DiceRepeatsList.Add(ones);
@@ -377,17 +378,13 @@ namespace CMP1903_A1_2324
             DiceRepeatsList.Add(fours);
             DiceRepeatsList.Add(fives);
             DiceRepeatsList.Add(sixes);
-            //DEBUGGER
-            //Console.WriteLine(ones);
-            //Console.WriteLine(twos);
-            //Console.WriteLine(threes);
-            //Console.WriteLine(fours);
-            //Console.WriteLine(fives);
-            //Console.WriteLine(sixes);
 
             return DiceRepeatsList;
         }
 
+        /// <summary>
+        /// This is a version of the game where the user plays against the computer
+        /// </summary>
         public override void againstComputer()
         {
             Console.WriteLine("PLAYING AGAINST THE COMPUTER!");
@@ -401,54 +398,54 @@ namespace CMP1903_A1_2324
             bool playing = true;
             while (playing == true)
             {
-
-                ///////////////////////////////////
                 if (player1Running == true)
                 {
                     Statistsics.THREEincPlayer1NumberOfPlays();
 
                     Console.WriteLine("Press any key to Play...");
-                    Console.ReadKey(); // Waits for a key press to roll die
+                    Console.ReadKey();
                     RollTheDie(0);
 
                     int Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 2)//checks for 2 of a kind
+                        if (DiceRepeatsList[Location2] == 2)
                         {
-
-                            Console.WriteLine("TWO OF A KIND");
-                            Console.WriteLine("OPTIONS");
-                            Console.WriteLine("(1) reroll ALL die");
-                            Console.WriteLine("(2) reroll the REMAINING die");
-                            Console.Write("Select an Option (eg '1' or '2'): ");
-                            string selectedOption = Console.ReadLine();//record the user input
-
-                            if (selectedOption == "1")
+                            try
                             {
-                                RollTheDie(0);
-                            }
-                            else if (selectedOption == "2")
-                            {
-                                twoOfAKind = 0;
-                                int Location3 = 0;
+                                Console.WriteLine("TWO OF A KIND");
+                                Console.WriteLine("OPTIONS");
+                                Console.WriteLine("(1) reroll ALL die");
+                                Console.WriteLine("(2) reroll the REMAINING die");
+                                Console.Write("Select an Option (eg '1' or '2'): ");
+                                string selectedOption = Console.ReadLine();
 
-                                bool searching = true;
-                                while (searching == true)
+                                if (selectedOption == "1")
                                 {
-                                    if (DiceRepeatsList[Location3] == 2)
+                                    RollTheDie(0);
+                                }
+                                else if (selectedOption == "2")
+                                {
+                                    twoOfAKind = 0;
+                                    int Location3 = 0;
+
+                                    bool searching = true;
+                                    while (searching == true)
                                     {
-                                        twoOfAKind = Location3 + 1;
-                                        searching = false;
-                                        RollTheDie(twoOfAKind);
-                                    }
-                                    else
-                                    {
-                                        Location3++;
+                                        if (DiceRepeatsList[Location3] == 2)
+                                        {
+                                            twoOfAKind = Location3 + 1;
+                                            searching = false;
+                                            RollTheDie(twoOfAKind);
+                                        }
+                                        else
+                                        {
+                                            Location3++;
+                                        }
                                     }
                                 }
                             }
-                            else
+                            catch
                             {
                                 Console.WriteLine("Invalid Input!");
                             }
@@ -456,9 +453,9 @@ namespace CMP1903_A1_2324
                         Location2++;
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 3)//checks for 3 of a kind
+                        if (DiceRepeatsList[Location2] == 3)
                         {
                             Console.WriteLine("THREE OF A KIND");
                             Player1Score = Player1Score + 3;
@@ -466,9 +463,9 @@ namespace CMP1903_A1_2324
                         Location2++;
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 4)//checks for 4 of a kind
+                        if (DiceRepeatsList[Location2] == 4)
                         {
                             Console.WriteLine("FOUR OF A KIND");
                             Player1Score = Player1Score + 6;
@@ -476,9 +473,9 @@ namespace CMP1903_A1_2324
                         Location2++;
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 5)//checks for 5 of a kind
+                        if (DiceRepeatsList[Location2] == 5)
                         {
                             Console.WriteLine("FIVE OF A KIND");
                             Player1Score = Player1Score + 12;
@@ -494,13 +491,10 @@ namespace CMP1903_A1_2324
 
                         player1Running = false;
                         playing = false;
-
-                        //BREAK LOOP
                     }
                     else
                     {
                         Console.WriteLine("\nCOMPUTERS TURN");
-                        //player2
                         player1Running = false;
                         computerRunning = true;
                     }
@@ -513,45 +507,47 @@ namespace CMP1903_A1_2324
                     RollTheDie(0);
 
                     int Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 2)//checks for 2 of a kind
+                        if (DiceRepeatsList[Location2] == 2)
                         {
-                            Console.WriteLine("TWO OF A KIND");
-                            Console.WriteLine("OPTIONS");
-                            Console.WriteLine("(1) reroll ALL die");
-                            Console.WriteLine("(2) reroll the REMAINING die");
-
-
-                            Random random = new Random();
-                            int selectedOption = random.Next(1, 3);
-                            Console.WriteLine("Computer Chooses Option: "+selectedOption);
-
-                            if (selectedOption == 1)
+                            try
                             {
-                                RollTheDie(0);
-                            }
-                            else if (selectedOption == 2)
-                            {
-                                twoOfAKind = 0;
-                                int Location3 = 0;
+                                Console.WriteLine("TWO OF A KIND");
+                                Console.WriteLine("OPTIONS");
+                                Console.WriteLine("(1) reroll ALL die");
+                                Console.WriteLine("(2) reroll the REMAINING die");
 
-                                bool searching = true;
-                                while (searching == true)
+                                Random random = new Random();
+                                int selectedOption = random.Next(1, 3);
+                                Console.WriteLine("Computer Chooses Option: " + selectedOption);
+
+                                if (selectedOption == 1)
                                 {
-                                    if (DiceRepeatsList[Location3] == 2)
+                                    RollTheDie(0);
+                                }
+                                else if (selectedOption == 2)
+                                {
+                                    twoOfAKind = 0;
+                                    int Location3 = 0;
+
+                                    bool searching = true;
+                                    while (searching == true)
                                     {
-                                        twoOfAKind = Location3 + 1;
-                                        searching = false;
-                                        RollTheDie(twoOfAKind);
-                                    }
-                                    else
-                                    {
-                                        Location3++;
+                                        if (DiceRepeatsList[Location3] == 2)
+                                        {
+                                            twoOfAKind = Location3 + 1;
+                                            searching = false;
+                                            RollTheDie(twoOfAKind);
+                                        }
+                                        else
+                                        {
+                                            Location3++;
+                                        }
                                     }
                                 }
                             }
-                            else
+                            catch
                             {
                                 Console.WriteLine("Invalid Input!");
                             }
@@ -559,9 +555,9 @@ namespace CMP1903_A1_2324
                         }
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 3)//checks for 3 of a kind
+                        if (DiceRepeatsList[Location2] == 3)
                         {
                             Console.WriteLine("THREE OF A KIND");
                             Player2Score = Player2Score + 3;
@@ -569,9 +565,9 @@ namespace CMP1903_A1_2324
                         Location2++;
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 4)//checks for 3 of a kind
+                        if (DiceRepeatsList[Location2] == 4)
                         {
                             Console.WriteLine("FOUR OF A KIND");
                             Player2Score = Player2Score + 6;
@@ -579,9 +575,9 @@ namespace CMP1903_A1_2324
                         Location2++;
                     }
                     Location2 = 0;
-                    for (int i = 0; i < 6; i++)//loops for each POSSIBLE DIE ROLL VALUE)
+                    for (int i = 0; i < 6; i++)
                     {
-                        if (DiceRepeatsList[Location2] == 5)//checks for 3 of a kind
+                        if (DiceRepeatsList[Location2] == 5)
                         {
                             Console.WriteLine("FIVE OF A KIND");
                             Player2Score = Player2Score + 12;
@@ -597,16 +593,13 @@ namespace CMP1903_A1_2324
 
                         computerRunning = false;
                         playing = false;
-
-                        //BREAK LOOP
                     }
                     else
                     {
                         Console.WriteLine("\nPLAYER 1'S TURN");
-                        //player2
+
                         player1Running = true;
                         computerRunning = false;
-
                     }
                 }
             }

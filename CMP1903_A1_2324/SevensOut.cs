@@ -6,41 +6,49 @@ using System.Threading.Tasks;
 
 namespace CMP1903_A1_2324
 {
+    /// <summary>
+    /// This class is inherited from the ThreeOrMore game
+    /// </summary>
     internal class SevensOut:ThreeOrMore
     {
-        //-------------------------------Variables-------------------------------
-
         int player1Total = 0;
         int player2Total = 0;
+        private Die dice1 = new Die();
+        private Die dice2 = new Die();
 
-        //-------------------------------Constructors-------------------------------
-        private Die dice1 = new Die(); //Creates the first dice object from the 'die' class called 'dice1'.
-        private Die dice2 = new Die(); //Creates the second dice object from the 'die' class called 'dice2'.
-
-        //-------------------------------Methods-------------------------------
-        public override void Run() //When this is called the game runs (the 3 die's each roll and get totalled).
+        /// <summary>
+        /// This gives the user an option to either play against a partner or the computer        
+        /// </summary>
+        public override void Run()
         {
-            Console.WriteLine("\n      SEVENS OUT");
-            Console.WriteLine("=======================");
-            Console.WriteLine("(1) Play against partner");
-            Console.WriteLine("(2) Play against computer");
-            Console.WriteLine("=======================");
-            Console.Write("Select an Option (eg '1' or '2'): ");
-            string selectedGame = Console.ReadLine();//record the user input
+            try
+            {
+                Console.WriteLine("\n      SEVENS OUT");
+                Console.WriteLine("=======================");
+                Console.WriteLine("(1) Play against partner");
+                Console.WriteLine("(2) Play against computer");
+                Console.WriteLine("=======================");
+                Console.Write("Select an Option (eg '1' or '2'): ");
+                string selectedGame = Console.ReadLine();
 
-            if (selectedGame == "1")
-            {
-                againstPartner();
+                if (selectedGame == "1")
+                {
+                    againstPartner();
+                }
+                else if (selectedGame == "2")
+                {
+                    againstComputer();
+                }
             }
-            else if (selectedGame == "2")
-            {
-                againstComputer();
-            }
-            else
+            catch
             {
                 Console.WriteLine("Invalid Input!");
             }
         }
+
+        /// <summary>
+        /// This is a version of the game where the user plays against a partner
+        /// </summary>
         public override void againstPartner()
         {
             Console.WriteLine("PLAYING AGAINST A PARTNER!");
@@ -52,20 +60,18 @@ namespace CMP1903_A1_2324
             bool playing = true;
             while (playing == true)
             {
-
-                ///////////////////////////////////
                 if (player1Running == true)
                 {
                     Statistsics.SEVincPlayer1NumberOfPlays();
 
                     Console.WriteLine("Press any key to Roll...");
-                    Console.ReadKey(); // Waits for a key press to roll die
+                    Console.ReadKey();
 
                     DiceRollsTotalP1 = 0;
 
-                    D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                    D1Value = dice1.Roll();
                     Console.WriteLine("1st Dice Roll: " + D1Value);
-                    D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                    D2Value = dice2.Roll();
                     Console.WriteLine("2nd Dice Roll: " + D2Value);
                     DiceRollsTotalP1 = D1Value + D2Value;
 
@@ -97,13 +103,13 @@ namespace CMP1903_A1_2324
                     Statistsics.SEVincPlayer2NumberOfPlays();
 
                     Console.WriteLine("Press any key to Roll...");
-                    Console.ReadKey(); // Waits for a key press to roll die
+                    Console.ReadKey();
 
                     DiceRollsTotalP2 = 0;
 
-                    D3Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                    D3Value = dice1.Roll();
                     Console.WriteLine("1st Dice Roll: " + D3Value);
-                    D4Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                    D4Value = dice2.Roll();
                     Console.WriteLine("2nd Dice Roll: " + D4Value);
                     DiceRollsTotalP2 = D3Value + D4Value;
 
@@ -113,7 +119,6 @@ namespace CMP1903_A1_2324
 
                         Console.WriteLine("Player 2's final score: " + player2Total);
 
-
                         player2Running = false;
                         player1Running = false;
                         playing = false;
@@ -121,7 +126,6 @@ namespace CMP1903_A1_2324
                         Console.WriteLine("\nFINAL SCORES:");
                         Console.WriteLine("Player 1 Score: " + player1Total);
                         Console.WriteLine("Player 2 Score: " + player2Total);
-
 
                         if (player1Total>player2Total)
                         {
@@ -137,11 +141,9 @@ namespace CMP1903_A1_2324
                         {
                             Console.WriteLine("player 2 wins!");
                             Statistsics.SEVincPlayer2NumberOfWins();
-
                         }
                         Statistsics.SEVPlayer1HighScore(player1Total);
                         Statistsics.SEVPlayer2HighScore(player2Total);
-
                     }
                     else
                     {
@@ -154,19 +156,14 @@ namespace CMP1903_A1_2324
                             player2Total = player2Total + DiceRollsTotalP2;
                         }
                         Console.WriteLine("Player 2 Current Score: " + player2Total);
-
                     }
                 }
             }
         }
 
-
-
-
-
-
-
-
+        /// <summary>
+        /// This is a version of the game where the user plays against the computer
+        /// </summary>
         public override void againstComputer()
         {
             Console.WriteLine("PLAYING AGAINST THE COMPUTER!");
@@ -178,20 +175,18 @@ namespace CMP1903_A1_2324
             bool playing = true;
             while (playing == true)
             {
-
-                ///////////////////////////////////
                 if (player1Running == true)
                 {
                     Statistsics.SEVincPlayer1NumberOfPlays();
 
                     Console.WriteLine("Press any key to Roll...");
-                    Console.ReadKey(); // Waits for a key press to roll die
+                    Console.ReadKey();
 
                     DiceRollsTotalP1 = 0;
 
-                    D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                    D1Value = dice1.Roll();
                     Console.WriteLine("1st Dice Roll: " + D1Value);
-                    D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                    D2Value = dice2.Roll();
                     Console.WriteLine("2nd Dice Roll: " + D2Value);
                     DiceRollsTotalP1 = D1Value + D2Value;
 
@@ -224,9 +219,9 @@ namespace CMP1903_A1_2324
 
                     DiceRollsTotalP2 = 0;
 
-                    D3Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
+                    D3Value = dice1.Roll();
                     Console.WriteLine("1st Dice Roll: " + D3Value);
-                    D4Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
+                    D4Value = dice2.Roll();
                     Console.WriteLine("2nd Dice Roll: " + D4Value);
                     DiceRollsTotalP2 = D3Value + D4Value;
 
@@ -236,7 +231,6 @@ namespace CMP1903_A1_2324
 
                         Console.WriteLine("Computer's final score: " + player2Total);
 
-
                         player2Running = false;
                         player1Running = false;
                         playing = false;
@@ -244,7 +238,6 @@ namespace CMP1903_A1_2324
                         Console.WriteLine("\nFINAL SCORES:");
                         Console.WriteLine("Player 1 Score: " + player1Total);
                         Console.WriteLine("Computer Score: " + player2Total);
-
 
                         if (player1Total > player2Total)
                         {
@@ -262,7 +255,6 @@ namespace CMP1903_A1_2324
                         }
                         Statistsics.SEVPlayer1HighScore(player1Total);
                         Statistsics.SEVComputerHighScore(player2Total);
-
                     }
                     else
                     {
@@ -275,13 +267,9 @@ namespace CMP1903_A1_2324
                             player2Total = player2Total + DiceRollsTotalP2;
                         }
                         Console.WriteLine("Computer Current Score: " + player2Total);
-
                     }
                 }
             }
         }
     }
-
-
-
 }
