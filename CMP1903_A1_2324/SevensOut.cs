@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace CMP1903_A1_2324
 {
+
     /// <summary>
-    /// This class is inherited from the ThreeOrMore game
+    /// This class is inherited from the Game class
     /// </summary>
-    internal class SevensOut:ThreeOrMore
+    internal class SevensOut:Game
     {
+        public int D1Value;
+        public int D2Value;
+        public int D3Value;
+        public int D4Value;
+        public int DiceRollsTotalP1;
+        public int DiceRollsTotalP2;
+        public int originalScore;
         int player1Total = 0;
         int player2Total = 0;
         private Die dice1 = new Die();
