@@ -14,20 +14,6 @@ namespace CMP1903_A1_2324
     /// </summary>
     internal class ThreeOrMore:Game
     {
-        public int D1Value;
-        public int D2Value;
-        public int D3Value;
-        public int D4Value;
-        public int D5Value;
-        public int Player1Sum = 0;
-        public int Player2Sum = 0;
-        public int ComputerSum = 0;
-        public int Player1Score = 0;
-        public int Player2Score = 0;
-        public int ComputerScore = 0;
-        public int DiceRollsTotalP1;
-        public int DiceRollsTotalP2;
-
         private Die dice1 = new Die();
         private Die dice2 = new Die();
         private Die dice3 = new Die();
@@ -35,7 +21,6 @@ namespace CMP1903_A1_2324
         private Die dice5 = new Die();
         List<int> DiceRollsList = new List<int>();
         public List<int> DiceRepeatsList = new List<int>();
-
         public int originalScore;
 
         /// <summary>

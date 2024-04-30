@@ -11,6 +11,17 @@ namespace CMP1903_A1_2324
     /// </summary>
     internal abstract class Game
     {
+        public int D1Value;
+        public int D2Value;
+        public int D3Value;
+        public int D4Value;
+        public int D5Value;
+        public int Player1Score = 0;
+        public int Player2Score = 0;
+        public int ComputerScore = 0;
+        public int DiceRollsTotalP1;
+        public int DiceRollsTotalP2;
+
         /// <summary>
         /// This gives the user an option to either play against a partner or the computer
         /// </summary>
