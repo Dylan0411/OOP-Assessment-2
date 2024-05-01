@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,28 +6,60 @@ using System.Threading.Tasks;
 
 namespace CMP1903_A1_2324
 {
-    internal class Game
+    /// <summary>
+    /// This class is a blueprint for both of the game classes
+    /// </summary>
+    internal abstract class Game
     {
-        //-------------------------------Variables-------------------------------
-        public int D1Value; //This variable will hold the value of the first rolled dice.
-        public int D2Value; //This variable will hold the value of the second rolled dice.
-        public int D3Value; //This variable will hold the value of the third rolled dice.
-        public int Sum; //This variable will hold the value of sum of the 3 dice values.
+        public int D1Value;
+        public int D2Value;
+        public int D3Value;
+        public int D4Value;
+        public int D5Value;
+        public int Player1Score = 0;
+        public int Player2Score = 0;
+        public int ComputerScore = 0;
+        public int DiceRollsTotalP1;
+        public int DiceRollsTotalP2;
 
-        //-------------------------------Constructors-------------------------------
-        private Die dice1 = new Die(); //Creates the first dice object from the 'die' class called 'dice1'.
-        private Die dice2 = new Die(); //Creates the second dice object from the 'die' class called 'dice2'.
-        private Die dice3 = new Die(); //Creates the third dice object from the 'die' class called 'dice3'.
-
-        //-------------------------------Methods-------------------------------
-        public int Run() //When this is called the game runs (the 3 die's each roll and get totalled).
+        /// <summary>
+        /// This gives the user an option to either play against a partner or the computer
+        /// </summary>
+        public virtual void Run()
         {
-            D1Value = dice1.Roll(); //Calls the 'roll' method in the 'dice1' object and assigns the returned value to 'D1Value' variable.
-            D2Value = dice2.Roll(); //Calls the 'roll' method in the 'dice2' object and assigns the returned value to 'D2Value' variable.
-            D3Value = dice3.Roll(); //Calls the 'roll' method in the 'dice3' object and assigns the returned value to 'D3Value' variable.
+            try
+            {
+                Console.WriteLine("####GAME TITLE HERE####");
+                Console.WriteLine("=======================");
+                Console.WriteLine("(1) Play against partner");
+                Console.WriteLine("(2) Play against computer");
+                Console.WriteLine("=======================");
+                Console.Write("Select an Option (eg '1' or '2'): ");
+                string selectedGame = Console.ReadLine();
 
-            Sum = D1Value + D2Value + D3Value; //This adds the values from the 3 dice rolls and assigns the result to the 'sum' variable.
-            return Sum; //This returns the result.
+                if (selectedGame == "1")
+                {
+                    againstPartner();
+                }
+                else if (selectedGame == "2")
+                {
+                    againstComputer();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Invalid Input!");
+            }
         }
+
+        /// <summary>
+        /// forces the games that inherit this class to have an option where the player plays against a partner
+        /// </summary>
+        public abstract void againstPartner();
+
+        /// <summary>
+        /// forces the games that inherit this class to have an option where the player plays against the computer
+        /// </summary>
+        public abstract void againstComputer();
     }
 }
